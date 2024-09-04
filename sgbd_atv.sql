@@ -24,7 +24,9 @@ describe funcionarios;
 
 alter table funcionarios drop rg;
 
-insert into funcionarios(codigo, nome, cpf) value('2000-05-13');
+insert into funcionarios(codigo, nome, cpf) value(1, 'gustavo', 12039485);
+
+select*from funcionarios where nome like 'gus%';
 
 create table pagamentos(
 cod_boleto integer primary key,
@@ -42,6 +44,8 @@ select*from pagamentos where not cod_boleto = 5;
 select*from pagamentos where cod_boleto  between  3 and  8;
 select*from pagamentos where cod_boleto > 3;
 
-select avg(valor) from pagamentos;
-select min(valor) from pagamentos;
-select max(valor) from pagamentos;
+select avg(valor) as media from pagamentos;
+select min(valor) as valor_minimo from pagamentos;
+select max(valor) as valor_maximo from pagamentos;
+select sum(valor) as soma from pagamentos;
+
